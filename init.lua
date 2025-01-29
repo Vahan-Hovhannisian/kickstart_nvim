@@ -84,7 +84,6 @@ I hope you enjoy your Neovim journey,
 P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
--- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
@@ -118,6 +117,10 @@ vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
 
+vim.opt.tabstop = 2 -- Количество пробелов, равное одному табу
+vim.opt.shiftwidth = 2 -- Длина отступа при сдвиге
+vim.opt.expandtab = false -- Использовать пробелы вместо табуляции
+vim.opt.softtabstop = 2 -- Пробелы при нажатии на таб-- Set <space> as the leader key
 -- Enable break indent
 vim.opt.breakindent = true
 
@@ -144,8 +147,8 @@ vim.opt.splitbelow = true
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
-vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.list = false
+-- vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
@@ -188,9 +191,9 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-vim.keymap.set('n', '<A-k>', '<cmd>m -2<CR>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<A-j>', '<cmd>m +1<CR>', { desc = 'Move focus to the lower window' })
--- vim.keymap.set('n', '<jj>', '<ESC>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('i', 'jj', '<ESC>')
+-- vim.keymap.set('n', '<A-k>', '<cmd>m -2<CR>', { desc = 'Move focus to the lower window' })
+-- vim.keymap.set('n', '<A-j>', '<cmd>m +1<CR>', { desc = 'Move focus to the lower window' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
